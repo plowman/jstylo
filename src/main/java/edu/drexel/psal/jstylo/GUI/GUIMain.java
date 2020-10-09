@@ -1,12 +1,9 @@
 package edu.drexel.psal.jstylo.GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
+import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import edu.drexel.psal.JSANConstants;
 import edu.drexel.psal.jstylo.featureProcessing.CumulativeFeatureDriver;
@@ -242,7 +239,7 @@ public class GUIMain extends javax.swing.JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() { 
 				try {
-					UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//					UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 				} catch (Exception e) {
 					LOG.error("Look-and-Feel error!");
 				}
@@ -276,7 +273,14 @@ public class GUIMain extends javax.swing.JFrame {
 			
 			setSize(1024, 768);
 			setTitle("JStylo");
-			setIconImage(new ImageIcon(Thread.currentThread().getClass().getResource(JSANConstants.JSAN_GRAPHICS_PREFIX+"icon32.jpg")).getImage());
+			String icon_path = JSANConstants.JSAN_GRAPHICS_PREFIX + "icon32.jpg";
+			LOG.warn("Trying to load image at " + icon_path);
+			URL resource = new URL("file:///Users/plowman/projects/jstylo/src/main/resources/edu/drexel/psal/resources/graphics/icon32.jpg");
+//			URL resource = Thread.currentThread().getClass().getResource(icon_path);
+			LOG.warn("Found resource: " + resource);
+			Image image = new ImageIcon(resource).getImage();
+			LOG.warn("Found image: " + image);
+//			setIconImage(image);
 			
 			{
 				mainJTabbedPane = new JTabbedPane();

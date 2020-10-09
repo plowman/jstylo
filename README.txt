@@ -55,4 +55,12 @@ Logging:
 
 JStylo uses Log4j for logging. To get log files for any experiments you run, add the VM argument -Dlog4j.configuration=file://${/path/to/log4j.xml}
 A default log4j.xml file is included in src/main/resources
- 
+
+
+## New instructions:
+
+### To Build:
+* mvn clean install -DskipTests
+
+### To Run:
+* java -cp ./lib/jgaap-5.2.0-lite.jar:./target/jstylo-2.9.0-jar-with-dependencies.jar edu.drexel.psal.jstylo.GUI.GUIMain

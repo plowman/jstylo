@@ -194,11 +194,12 @@ public class CumulativeFeatureDriver implements Serializable {
 			
 			try {
 				currDoc.processCanonicizers();
-			} catch (LanguageParsingException | CanonicizationException e1) {
+//			} catch (LanguageParsingException | CanonicizationException e1) {
+			} catch (Exception e1) {
 				LOG.error("Failed to canonicize document",e1);
 				if (usingCache)
 					writer.close();
-				throw new Exception();
+				throw e1;
 			}
 			
 			// extract event set

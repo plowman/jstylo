@@ -4,7 +4,7 @@
 
 	<groupId>edu.drexel.psal</groupId>
 	<artifactId>jstylo</artifactId>
-	<name>${artifactId}</name>
+	<name>${project.artifactId}</name>
 	<version>2.9.0</version>
 	<packaging>jar</packaging>
 	<description>A feature-extraction and authorship-attribution tool.</description>
@@ -55,7 +55,7 @@
 			<artifactId>jgaap-5.2.0-lite</artifactId>
 			<scope>system</scope>
 			<version>5.2.0-lite</version>
-			<systemPath>${basedir}/lib/jgaap-5.2.0-lite.jar</systemPath>
+			<systemPath>${project.basedir}/lib/jgaap-5.2.0-lite.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

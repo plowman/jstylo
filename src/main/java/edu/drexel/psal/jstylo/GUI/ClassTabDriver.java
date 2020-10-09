@@ -24,6 +24,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 import weka.classifiers.*;
 
@@ -360,9 +361,9 @@ public class ClassTabDriver {
 			boolean add = true;
 
 			DefaultMutableTreeNode child;
-			Enumeration<DefaultMutableTreeNode> children = rootNode.children();
+			Enumeration<TreeNode> children = rootNode.children();
 			while (children.hasMoreElements()) {
-				child = children.nextElement();
+				child = (DefaultMutableTreeNode) children.nextElement();
 				if (child.toString().equals(components[0])) {
 					add = false;
 					break;
@@ -398,16 +399,17 @@ public class ClassTabDriver {
 		}
 
 		// add all classes
-		DefaultMutableTreeNode currNode, child;
+		DefaultMutableTreeNode currNode;
+		DefaultMutableTreeNode child;
 		for (String className : loadedClasses) {
 			String[] nameArr = className.split("\\.");
 			currNode = rootNode;
 
 			for (int i = 0; i < nameArr.length; i++) {
 				// look for node
-				Enumeration<DefaultMutableTreeNode> children = currNode.children();
+				Enumeration<TreeNode> children = currNode.children();
 				while (children.hasMoreElements()) {
-					child = children.nextElement();
+					child = (DefaultMutableTreeNode) children.nextElement();
 					if (child.getUserObject().toString().equals(nameArr[i])) { // this is the adding of a subsequent child to a node
 						currNode = child;
 						break;

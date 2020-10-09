@@ -9,7 +9,7 @@ import edu.drexel.psal.jstylo.featureProcessing.ProblemSet;
 import java.io.*;
 import java.text.*;
 import java.util.*;
-import sun.audio.*;    //import the sun.audio package
+//import sun.audio.*;    //import the sun.audio package
 
 /**
  *
@@ -456,29 +456,29 @@ public class BekahUtil
         }
     }
 
-    @SuppressWarnings("restriction")
-    public static synchronized void playSound(File file) throws FileNotFoundException, IOException, InterruptedException
-    {
-        InputStream in = new FileInputStream(file);
+//    @SuppressWarnings("restriction")
+//    public static synchronized void playSound(File file) throws FileNotFoundException, IOException, InterruptedException
+//    {
+//        InputStream in = new FileInputStream(file);
+//
+//        AudioStream as = new AudioStream(in);
+//
+//        AudioPlayer.player.start(as);
+//        Thread.sleep(5000);
+//        AudioPlayer.player.stop(as);
+//    }
 
-        AudioStream as = new AudioStream(in);
-
-        AudioPlayer.player.start(as);
-        Thread.sleep(5000);
-        AudioPlayer.player.stop(as);
-    }
-
-    public static synchronized void playSound() throws FileNotFoundException, IOException, InterruptedException
-    {
-        try
-        {
-            playSound(new File("/Users/bekahoverdorf/Desktop/Desktop/beep-7.wav"));
-        }
-        catch (Exception ex)
-        {
-            System.err.println("BEEP");
-        }
-    }
+//    public static synchronized void playSound() throws FileNotFoundException, IOException, InterruptedException
+//    {
+//        try
+//        {
+//            playSound(new File("/Users/bekahoverdorf/Desktop/Desktop/beep-7.wav"));
+//        }
+//        catch (Exception ex)
+//        {
+//            System.err.println("BEEP");
+//        }
+//    }
 
     public static String[] groupTweets(File[] tweets, int size) throws FileNotFoundException
     {

@@ -35,6 +35,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -313,9 +314,9 @@ public class AnalysisTabDriver {
 						String nthreads = main.analysisNThreadJTextField.getText();
 
 						// find out how many documents there are
-						Enumeration<DefaultMutableTreeNode> authors = ((DefaultMutableTreeNode) main.trainCorpusJTree
+						Enumeration<TreeNode> authors = ((DefaultMutableTreeNode) main.trainCorpusJTree
 								.getModel().getRoot()).children();
-						DefaultMutableTreeNode author;
+						TreeNode author;
 						while (authors.hasMoreElements()) {
 							author = authors.nextElement();
 							docCount += author.getChildCount();
@@ -667,11 +668,11 @@ public class AnalysisTabDriver {
 
 				// training set
 				content += "Training corpus:\n";
-				Enumeration<DefaultMutableTreeNode> authors = ((DefaultMutableTreeNode) main.trainCorpusJTree
+				Enumeration<TreeNode> authors = ((DefaultMutableTreeNode) main.trainCorpusJTree
 						.getModel().getRoot()).children();
 				DefaultMutableTreeNode author;
 				while (authors.hasMoreElements()) {
-					author = authors.nextElement();
+					author = (DefaultMutableTreeNode) authors.nextElement();
 					content += "> " + author.getUserObject().toString() + " (" + author.getChildCount()
 							+ " documents)\n";
 				}
@@ -680,11 +681,11 @@ public class AnalysisTabDriver {
 				// test set
 				if (classifyTestDocs) {
 					content += "Test documents:\n";
-					Enumeration<DefaultMutableTreeNode> testAuthors = ((DefaultMutableTreeNode) main.testDocsJTree
+					Enumeration<TreeNode> testAuthors = ((DefaultMutableTreeNode) main.testDocsJTree
 							.getModel().getRoot()).children();
 					DefaultMutableTreeNode testAuthor;
 					while (testAuthors.hasMoreElements()) {
-						testAuthor = testAuthors.nextElement();
+						testAuthor = (DefaultMutableTreeNode) testAuthors.nextElement();
 						content += "> " + testAuthor.getUserObject().toString() + " (" + testAuthor.getChildCount()
 								+ " documents)\n";
 					}
